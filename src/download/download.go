@@ -39,9 +39,27 @@ func PrivateDownload() {
 
 	expires := 3600
 	deadline := time.Now().Add(time.Duration(expires) * time.Second).Unix()
-	dataToSign := fmt.Sprintf("%s/%s?e=%d", domain, url.QueryEscape(key), deadline)
-	token := digest.Sign(&mac, []byte(dataToSign))
+	urlToSign := fmt.Sprintf("%s/%s?e=%d", domain, url.QueryEscape(key), deadline)
+	token := digest.Sign(&mac, []byte(urlToSign))
 
-	dnlink := fmt.Sprintf("%s&token=%s", dataToSign, token)
+	dnlink := fmt.Sprintf("%s&token=%s", urlToSign, token)
+	fmt.Println(dnlink)
+}
+
+func PrivateDownloadWithFops() {
+	mac := digest.Mac{
+		config.AccessKey,
+		[]byte(config.SecretKey),
+	}
+	domain := "http://if-pri.qiniudn.com"
+	key := "qiniu.png"
+	fops := "watermark/2/fontsize/1200/text/" + b64encode("七牛云存储") + "|imageView2/0/w/100"
+
+	expires := 3600
+	deadline := time.Now().Add(time.Duration(expires) * time.Second).Unix()
+	urlToSign := fmt.Sprintf("%s/%s?%s&e=%d", domain, url.QueryEscape(key), fops, deadline)
+	token := digest.Sign(&mac, []byte(urlToSign))
+
+	dnlink := fmt.Sprintf("%s&token=%s", urlToSign, token)
 	fmt.Println(dnlink)
 }
