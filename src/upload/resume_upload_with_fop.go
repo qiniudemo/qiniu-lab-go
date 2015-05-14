@@ -5,12 +5,12 @@ import (
 	"encoding/base64"
 	"fmt"
 	"github.com/qiniu/api/auth/digest"
-	"github.com/qiniu/api/io"
+	"github.com/qiniu/api/resumable/io"
 	"github.com/qiniu/api/rs"
 )
 
 //该上传演示了带视频流媒体切片功能的
-func SimpleUploadWithFop() {
+func ResumeUploadWithFop() {
 	//空间名称
 	bucket := "if-pbl"
 	//文件在空间中保存名字
@@ -39,7 +39,7 @@ func SimpleUploadWithFop() {
 	policy.Expires = 3600 //3600s后过期
 	uptoken := policy.Token(&mac)
 
-	//普通上传方式
+	//分片上传方式
 	putRet := &FopPutRet{}
 	err := io.PutFile(nil, putRet, uptoken, key, localFile, nil)
 	if err != nil {
