@@ -21,9 +21,9 @@ func SimpleAvthumbForDJ() {
 	//点播转码
 	//SD
 	sdVideoSaveBucket := bucket
-	sdVideoSaveKey := "dj_640x320_512k.mp4"
+	sdVideoSaveKey := "dj_640x360_512k.mp4"
 	sdVideoSaveEntry := sdVideoSaveBucket + ":" + sdVideoSaveKey
-	sdVideoFop := "avthumb/mp4/vb/512k/s/640x320|saveas/" + base64.URLEncoding.EncodeToString([]byte(sdVideoSaveEntry))
+	sdVideoFop := "avthumb/mp4/vb/512k/s/640x360|saveas/" + base64.URLEncoding.EncodeToString([]byte(sdVideoSaveEntry))
 	//720P
 	highVideoSaveBucket := bucket
 	highVideoSaveKey := "dj_1280x720_1m.mp4"
@@ -37,9 +37,9 @@ func SimpleAvthumbForDJ() {
 	//流媒体切片
 	//SD
 	sdM3u8SaveBucket := bucket
-	sdM3u8SaveKey := "dj_640x320_512k.m3u8"
+	sdM3u8SaveKey := "dj_640x360_512k.m3u8"
 	sdM3u8SaveEntry := sdM3u8SaveBucket + ":" + sdM3u8SaveKey
-	sdM3u8Fop := "avthumb/m3u8/vb/512k/s/640x320|saveas/" + base64.URLEncoding.EncodeToString([]byte(sdM3u8SaveEntry))
+	sdM3u8Fop := "avthumb/m3u8/vb/512k/s/640x360|saveas/" + base64.URLEncoding.EncodeToString([]byte(sdM3u8SaveEntry))
 	//720P
 	highM3u8SaveBucket := bucket
 	highM3u8SaveKey := "dj_1280x720_1m.m3u8"
