@@ -4,9 +4,9 @@ import (
 	"config"
 	"encoding/base64"
 	"fmt"
-	"github.com/qiniu/api/auth/digest"
-	"github.com/qiniu/api/resumable/io"
-	"github.com/qiniu/api/rs"
+	"github.com/qiniu/api.v6/auth/digest"
+	"github.com/qiniu/api.v6/resumable/io"
+	"github.com/qiniu/api.v6/rs"
 )
 
 //该上传演示了带视频流媒体切片功能的

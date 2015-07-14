@@ -4,7 +4,7 @@ import (
 	"config"
 	"encoding/base64"
 	"fmt"
-	"github.com/qiniu/api/auth/digest"
+	"github.com/qiniu/api.v6/auth/digest"
 	"github.com/qiniu/rpc"
 	"net/http"
 )
