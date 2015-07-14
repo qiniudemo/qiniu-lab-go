@@ -4,4 +4,6 @@ package config
 const (
 	AccessKey = ""
 	SecretKey = ""
+
+	UPLOAD_HOST = "http://up.qiniu.com"
 )

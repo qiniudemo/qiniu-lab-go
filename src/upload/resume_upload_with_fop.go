@@ -5,12 +5,15 @@ import (
 	"encoding/base64"
 	"fmt"
 	"github.com/qiniu/api.v6/auth/digest"
+	"github.com/qiniu/api.v6/conf"
 	"github.com/qiniu/api.v6/resumable/io"
 	"github.com/qiniu/api.v6/rs"
 )
 
 //该上传演示了带视频流媒体切片功能的
 func ResumeUploadWithFop() {
+	//设置上传域名
+	conf.UP_HOST = config.UP_HOST
 	//空间名称
 	bucket := "if-pbl"
 	//文件在空间中保存名字
